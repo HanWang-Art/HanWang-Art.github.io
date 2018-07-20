@@ -1,0 +1,1461 @@
+@charset "UTF-8";
+
+/* @group 全サイト共通
+===========================================================================
+===========================================================================
+*/
+
+
+/* @group ブラウザ・リセット
+===========================================================================
+*/
+
+
+/* @group レイアウト
+---------------------------------------------------------------------------
+*/
+
+body,
+div,
+p,
+blockquote,
+pre,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+table,
+th,
+td,
+embed,
+object {
+  margin: 0px;
+  padding: 0px;
+  text-align: left;
+}
+
+table,
+th,
+td,
+img {
+  border: 0px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+
+/* @end */
+
+
+/* @group タイポグラフィー
+---------------------------------------------------------------------------
+*/
+
+* {
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-decoration: none;
+  vertical-align: baseline;
+}
+
+b,
+strong {
+  font-weight: bold;
+  font-weight: 600;
+}
+
+i,
+em,
+var {
+  font-style: italic;
+}
+
+u {
+  text-decoration: underline;
+}
+
+s,
+strike {
+  text-decoration: line-through;
+}
+
+tt,
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace;
+}
+
+abbr,
+acronym {
+  border-bottom: 1px dotted #000;
+}
+
+ins {
+  text-decoration: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+sub {
+  vertical-align: sub;
+}
+
+sup {
+  vertical-align: super;
+}
+
+
+/* @end */
+
+
+/* @group その他
+---------------------------------------------------------------------------
+*/
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0px;
+  border: 0px;
+}
+
+th,
+td {
+  border: 0px;
+  empty-cells: hide;
+  vertical-align: middle;
+}
+
+th img,
+td img {
+  vertical-align: middle;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+img {
+  border: 0px;
+}
+
+a img {
+  cursor: pointer;
+}
+
+a img {
+  text-decoration: none !important;
+}
+
+hr {
+  height: 0px;
+  padding: 0px;
+  border-style: solid;
+  border-width: 0px 0px 1px;
+}
+
+
+/* @end */
+
+
+/* @end */
+
+
+/* @group 共通設定
+===========================================================================
+*/
+
+
+/* Firefoxでswfなどを縦100%でレンダリングさせる場合、「height: 100%;」が必要。 */
+
+
+/* html, body { height: 100%; } */
+
+
+/* 縦スクロールバーを強制表示。 */
+
+html {
+  overflow-y: scroll;
+}
+
+
+/* IE6のquirkモードで margin: auto; によるセンタリングができないバクの対策。
+後続の子ブロック要素で text-align: center; を指定して左寄せに戻す必要あり。
+ただし、そもそもquirksモードに入らなければよい。 */
+
+
+/* body { text-align: center; } */
+
+
+/* FireFoxでembed要素、Operaでobject要素の下に余白ができてしまう問題を回避。 */
+
+object,
+embed {
+  vertical-align: top;
+}
+
+
+/* @group Clearfix
+---------------------------------------------------------------------------
+*/
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0.1px;
+  font-size: 0.1em;
+  line-height: 0;
+}
+
+.clearfix {
+  min-height: 1px;
+}
+
+* html .clearfix {
+  display: inline-block;
+}
+
+
+/* IE5以前のみ */
+
+
+/*\*/
+
+* html .clearfix {
+  height: 1%;
+}
+
+.clearfix {
+  display: block;
+}
+
+
+/**/
+
+
+/* Mac版IEから隠す */
+
+
+/* @end */
+
+
+/* @end */
+
+
+/* @group プリンター関連
+===========================================================================
+*/
+
+
+/* プリント時以外は表示しない要素。 */
+
+.printOnly {
+  display: none;
+}
+
+
+/* プリンタ用指定 */
+
+@media print {
+  /* overflowにvisible以外を指定した要素も印刷されるように。 */
+  /* * { overflow: visible; } */
+  /* プリントされず、レイアウトからも消える要素。 */
+  .noPrint {
+    display: none;
+  }
+  /* プリントされないものの、レイアウトには影響を与える要素（単なる非表示）。 */
+  .noPrintContent {
+    visibility: hidden;
+  }
+  /* プリント時以外は表示しない要素。＝プリント時のみ表示する要素。 */
+  .printOnly {
+    display: block;
+  }
+  span.printOnly,
+  label.printOnly {
+    display: inline;
+  }
+  table.printOnly {
+    display: table;
+  }
+  tr.printOnly {
+    display: table-row;
+  }
+  td.printOnly,
+  th.printOnly {
+    display: table-cell;
+  }
+}
+
+
+/* @end */
+
+
+/* @end */
+
+
+/* @group タイポグラフィー
+===========================================================================
+===========================================================================
+*/
+
+
+/* @group 共通設定
+===========================================================================
+*/
+
+
+/* @group フォント・フェイス
+---------------------------------------------------------------------------
+*/
+
+html[lang='ja'] body,
+*[lang="ja"],
+*:lang(ja) {
+  font-family: 'ヒラギノ角ゴ Pro W3', 'HiraKakuProN-W3', 'Hiragino Kaku Gothic Pro W3', 'Hiragino Kaku Gothic Pro', 'HiraKakuPro-W3', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', 'Arial', 'Verdana', sans-serif;
+}
+
+* html body {
+  /* for IE6 */
+  font-family: 'メイリオ', 'Arial', 'Verdana', 'ＭＳ Ｐゴシック', sans-serif;
+  /*	font-family: 'メイリオ', 'Times New Roman', 'ＭＳ Ｐ明朝', 細明朝, リュウミンL, serif;*/
+}
+
+
+/* @end */
+
+
+/* @group フォント・サイズ
+---------------------------------------------------------------------------
+*/
+
+body {
+  font-size: 13px;
+}
+
+* html body {
+  font-size: 81.25%;
+}
+
+
+/* for IE6 */
+
+body {
+  line-height: 1.67em;
+}
+
+
+/*  */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+table {
+  font-size: inherit;
+}
+
+sub {
+  font-size: 80%;
+}
+
+sup {
+  font-size: 80%;
+}
+
+big {
+  font-size: 110%;
+}
+
+small {
+  font-size: 90%;
+}
+
+
+/* @end */
+
+
+/* @group 文字色
+---------------------------------------------------------------------------
+*/
+
+body {
+  color: #000;
+}
+
+a:link {
+  color: #f763ac;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #cd9f70;
+  text-decoration: none;
+}
+
+a:link:hover,
+a:visited:hover {
+  color: #c93121;
+}
+
+a:link:active,
+a:visited:active {
+  color: #D37EAA;
+}
+
+a:link:focus,
+a:visited:focus {
+  color: #D37EAA;
+}
+
+a {
+  outline: none;
+}
+
+
+/* @end */
+
+
+/* @group 段落関連
+---------------------------------------------------------------------------
+*/
+
+p,
+ul,
+ol,
+dl,
+blockquote,
+div.para {
+  margin-bottom: 20px;
+}
+
+div.para p,
+div.para ul,
+div.para ol,
+div.para dl,
+div.para blockquote {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.lastP {
+  margin-bottom: 0px;
+}
+
+
+/* hr は b や small などと同じく見栄えを制御するもので、文書を意味的に構造化するものではない。
+意味的に区切るには div を使用する。 */
+
+hr {
+  height: 0px;
+  margin: 30px 0 30px 0px;
+  border-color: #fff;
+}
+
+
+/* @end */
+
+
+/* @end */
+
+
+/* @group 必要に応じて使用
+===========================================================================
+*/
+
+
+/* @group 文字スタイル
+---------------------------------------------------------------------------
+*/
+
+
+/* 全角カッコを囲む：カッコ内の級数を下げ、前後を字詰めする */
+
+span.paren {
+  font-size: 0.92em;
+  /* 11px */
+  line-height: 1.82em;
+  /* 20px */
+}
+
+
+/*
+html[lang='ja'] span.paren {
+	margin-right: -0.5em;
+	margin-left: -0.5em;
+}
+*/
+
+html[lang='ja'] .alphanum span.paren,
+html[lang='ja'] *[lang='en'] span.paren,
+html[lang='ja'] *:lang(en) span.paren {
+  margin-right: 0em;
+  margin-left: 0em;
+}
+
+* html body span.paren {
+  /* for ie6: MS P ゴシック、MS P 明朝 */
+  margin-right: 0em;
+  margin-left: 0em;
+}
+
+
+/* アステリスクを囲む：たいていのフォントで見づくなるため Verdana 10px に決め打ち */
+
+span.aster {
+  font-family: 'Verdana', sans-serif;
+  font-size: 10px;
+}
+
+
+/* ©（&copy;）を囲む：たいていのフォントで見づくなるため Verdana 10px に決め打ち */
+
+span.copyright {
+  font-family: 'Verdana', sans-serif;
+  font-size: 10px;
+}
+
+
+/* @end */
+
+
+/* @group 段落スタイル等
+---------------------------------------------------------------------------
+*/
+
+
+/* メニュー等：リスト要素を使用するが箇条書きが不要の場合 */
+
+.menu,
+.menu ul,
+.menu ol {
+  list-style-type: none;
+  margin-bottom: 0px;
+}
+
+
+/* 注記 */
+
+.note {
+  font-size: 0.92em;
+  /* 11px */
+  line-height: 1.82em;
+  /* 20px */
+  color: #666;
+}
+
+
+/* ボタン風 */
+
+.button {
+  margin-right: 10px;
+  padding: 3px 5px;
+  border-radius: 5px;
+  font-size: 0.92em/* 11px */
+  ;
+  background-color: #e6e6e6;
+}
+
+.button a,
+.button a:link,
+.button a:visited,
+.button a:hover,
+.button a:active,
+.button a:link:visited,
+.button a:link:hover,
+.button a:link:active {
+  text-decoration: none;
+  color: #666;
+}
+
+
+/* @end */
+
+
+/* @end */
+
+
+/* @end */
+
+
+/* @group レイアウト
+===========================================================================
+===========================================================================
+*/
+
+
+/* @group [1] 基本レイアウト
+===========================================================================
+
++-------------------------------------+
+| #upper                              |
+|                                     |
+| +---------------------------------+ |
+| | #header                         | |
+| +---------------------------------+ |
+|                                     |
+| +---------------------------------+ |
+| | #menu                           | |
+| +---------------------------------+ |
+|                                     |
+| +---------------------------------+ |
+| | #bodier                         | |
+| | +-----------------------------+ | |
+| | | #inner                      | | |
+| | | +-------------------------+ | | |
+| | | | .story                  | | | |
+| | | | +------+ +------------+ | | | |
+| | | | | .sub | | .main      | | | | |
+| | | | |      | |            | | | | |
+| | | | |      | |            | | | | |
+| | | | |      | |            | | | | |
+| | | | |      | |            | | | | |
+| | | | +------+ +------------+ | | | |
+| | | +-------------------------+ | | |
+| | +-----------------------------+ | |
+| +---------------------------------+ |
+|                                     |
++-------------------------------------+
+
++-------------------------------------+
+| #lower                              |
+| +---------------------------------+ |
+| | #footer                         | |
+| +---------------------------------+ |
++-------------------------------------+
+
+*/
+
+
+/* @group 縦方向
+---------------------------------------------------------------------------
+*/
+
+
+/*
+#upper内にコンテンツを追加する場合は、#bodyerよりも上に追加する。
+#bodyerより下には、高さのあるコンテンツを追加することはできない。
+#lower内にはコンテンツを追加できるが、#lowerの高さは決め打ちであることに注意。
+*/
+
+
+/* @end */
+
+
+/* @group Z軸方向
+---------------------------------------------------------------------------
+*/
+
+div#header {
+  z-index: 20;
+}
+
+div#bodyer {
+  z-index: 10;
+}
+
+div#menu {
+  z-index: 30;
+}
+
+div#footer {
+  z-index: 20;
+}
+
+
+/* @end */
+
+
+/* @group 横方向
+---------------------------------------------------------------------------
+*/
+
+div#upper,
+div#lower {
+  width: 100%;
+}
+
+#header,
+div#bodyer,
+#footer {
+  /* レイアウトの横幅（可変：auto / 固定：960px） */
+  width: 695px;
+  /* min-width: 960px; */
+  /* レイアウトのセンタリング */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div#bodyer {
+  /* overflow: hidden; */
+}
+
+div#bodyer div#inner {
+  /* ↓グローバルな左カラムの幅 + 余白 */
+  /* 	margin-left : 200px; */
+  /* ↓グローバルな右カラムの幅 + 余白 */
+  /*	margin-right: 200px;*/
+}
+
+
+/* ＊グローバルなカラムは、#menu内のul要素を絶対配置して作成。 */
+
+
+/*
+div.story内のローカルな2カラム・レイアウト：
+
+div.story内に、div.main／div.subの2つのカラムを配置。
+div.main内にはdiv.innerが必須。
+
+配置は下記の2パターンがある。
+
+配置：[main][sub]　｜　div.storyに付加するクラス名：.main_sub　｜　div.story内のdiv要素の記述順序：div.main div.sub
+配置：[sub][main]　｜　div.storyに付加するクラス名：.sub_main　｜　div.story内のdiv要素の記述順序：div.sub div.main
+
+
+「レイアウトの横幅」が「可変」の場合は、div.mainが可変となる。div.subの幅は常に固定。
+「レイアウトの横幅」が「固定」の場合は、div.mainの幅は「div.storyの幅 - div.sub」で規定される（明示的な指定は不要）。
+
+div.story（階）は#inner内に複数段重ねることが可能。
+その場合は各div.storyごとにid（#contents, #extra 等）を設定して、カラムのレイアウトもそれぞれ下記のパターンのように設定すればよい。
+
+div.storyはdiv.main内にネストすることが可能。
+その場合は各div.mainごとにid（#main 等）を設定して、カラムのレイアウトもそれぞれ下記のパターンのように設定すればよい。
+*/
+
+
+/* [main][sub] パターン */
+
+div.story.main_sub div.main {
+  margin-left: 0px;
+}
+
+div.story.main_sub div.main div.inner {
+  margin-right: 0px;
+  /* サブカラムの幅 + 90 */
+  margin-left: 0px;
+}
+
+* html body div.story.sub_main div.story.main_sub div.main {
+  padding-left: 270px;
+  /* サブカラムの幅 + 90 */
+}
+
+div.story.main_sub div.sub {
+  width: 0px;
+  /* サブカラムの幅 */
+  margin-left: 0px;
+  /* サブカラムの幅（-） */
+}
+
+
+/* 以下、両パターンに共通の設定（変更不要） */
+
+div.story {
+  clear: both;
+  overflow: hidden;
+}
+
+div.story div.main {
+  float: left;
+  width: 100%;
+}
+
+div.story div.sub {
+  float: left;
+  position: relative;
+  z-index: 11;
+}
+
+
+/**/
+
+#bodyer {
+  margin-top: 30px;
+}
+
+
+@media screen and (max-width: 992px) {
+  #header,
+  div#bodyer,
+  #footer {
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+}
+
+
+/* @end */
+
+
+/* @group 背景
+---------------------------------------------------------------------------
+*/
+
+
+/* @end */
+
+
+/* @group [2] #header内のレイアウト
+===========================================================================
+*/
+
+
+/* @group 基本レイアウト
+---------------------------------------------------------------------------
+*/
+
+#header {
+  position: relative;
+  height: 125px;
+  /* デザインに合わせて設定 */
+  margin: auto;
+}
+
+h1 {
+  position: absolute;
+  left: 246px;
+  top: 50px;
+}
+
+h1 a {
+  font-size: 30px;
+  white-space: nowrap;
+}
+
+h1 a {
+  text-decoration: none !important;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 a:visited {
+  color: #000;
+}
+
+.lang {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.lang a {
+  margin-left: 20px;
+  padding-left: 12px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.lang a.active {
+  background: url(../_img/header/lang.png) 0 center no-repeat;
+}
+
+
+@media screen and (max-width: 768px) {
+  #header h1 {
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .lang {
+    right: 15px;
+  }
+}
+
+
+/* @end */
+
+
+/* @group Navi
+---------------------------------------------------------------------------
+*/
+
+#navi {
+  widht: 695px;
+  margin: auto;
+  text-align: center;
+}
+
+#navi span {
+  padding: 0 18px;
+  line-height: 45px;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.lang a,
+#navi a {
+  color: #000;
+}
+
+.lang a,
+#navi a {
+  text-decoration: #000;
+}
+
+.lang a:link,
+#navi a:link {
+  color: #000;
+  text-decoration: none;
+}
+
+.lang a:visited,
+#navi a:visited {
+  color: #000;
+  text-decoration: none;
+}
+
+.lang a:hover,
+#navi a:hover {
+  color: #c93121;
+}
+
+@media screen and (max-width: 768px) {
+  #navi {
+    display: flex;
+    justify-content: center;
+  }
+  #navi span {
+    padding: 0 10px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #navi span {
+    font-size: 12px;
+  }
+}
+
+
+/* @end */
+
+
+/* @group [3] #bodyer内のレイアウト
+===========================================================================
+*/
+
+
+/* @group 基本レイアウト
+---------------------------------------------------------------------------
+*/
+
+#bodyer {
+  padding-top: 45px;
+}
+
+ul {
+  margin-left: 1.5em;
+}
+
+.notice {
+  color: #c30;
+}
+
+.subhead {
+  margin: 45px 0 15px 0;
+  font-size: 90%;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.character_fill {
+  /* margin-left: -0.5em; */
+}
+
+
+/* @group home
+---------------------------------------------------------------------------
+*/
+
+.home #bodyer {
+  width: 810px;
+}
+
+.slideWrapper {
+  width: 810px;
+  /* test */
+  margin: 15px auto 0 auto;
+  /* test */
+}
+
+.slide img {
+  display: block;
+  width: 100%;
+}
+
+.slide .caption {
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+  background: #ff00ff;
+}
+
+.slidesjs-log {
+  float: right;
+  margin-left: 2em;
+  padding-top: 0.5em;
+  line-height: 1em;
+  font-size: 90%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.caption {
+  padding-top: 0.5em;
+  line-height: 1em;
+}
+
+.caption span {
+  display: none;
+  font-size: 85%;
+}
+
+.slideShow {
+  position: relative;
+  overflow: visible !important;
+}
+
+ul.slidesjs-pagination {
+  position: absolute;
+  right: 0px;
+  top: 455px;
+}
+
+ul.slidesjs-pagination li {
+  float: left;
+  list-style: none outside none;
+  margin: 0;
+}
+
+ul.slidesjs-pagination li a {
+  background-image: url("../ui/pagination.png");
+  background-position: 0 0;
+  display: block;
+  float: left;
+  height: 20px;
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 20px;
+}
+
+ul.slidesjs-pagination li a.active {
+  background-position: 0 -20px;
+}
+
+.slideInner {
+  position: absolute;
+}
+
+.home .section.news>.clearfix {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home .news>.clearfix .segment {
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.home .news>.clearfix .segment:first-of-type {
+  padding-right: 15px;
+}
+
+.home .news>.clearfix .segment:last-of-type {
+  padding-left: 15px;
+}
+
+.home .news .subhead {
+  margin-top: 0;
+}
+
+
+/**/
+
+@media screen and (max-width: 992px) {
+  .home #bodyer {
+    width: 100%;
+  }
+  .slideWrapper {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .slidesjs-pagination {
+    display: none;
+  }
+  .home .caption {
+    padding-left: 5px;
+  }
+  .home .slidesjs-log {
+    margin-right: 5px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .home .news>.clearfix {
+    flex-direction: column;
+  }
+  .home .news>.clearfix .segment {
+    width: 100%;
+  }
+}
+
+
+/* @end */
+
+
+/* @group news
+---------------------------------------------------------------------------
+*/
+
+.news .right a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.news .subhead {
+  padding-bottom: 5px;
+  border-bottom: 1px #000 dotted;
+}
+
+.news .post {
+  margin: 0 0 20px 0;
+}
+
+.news .date {
+  font-style: italic;
+  font-size: 95%;
+  color: #333;
+}
+
+.news .link {
+  margin-top: 45px;
+}
+
+.news .link a {
+  font-size: 95%;
+  color: #000 !important;
+}
+
+.style {
+  margin: 40px 0 5px 0;
+  font-size: 90%;
+  font-weight: 600;
+  color: #333;
+}
+
+.en .style {
+  font-family: 'Open Sans', sans-serif;
+}
+
+#info .segment {
+  width: 100%;
+  margin: 0 0 40px 0;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+  .past-news .news {
+    padding: 0 15px;
+  }
+}
+
+
+/* @end */
+
+
+/* @group works
+---------------------------------------------------------------------------
+*/
+
+#localNavi {
+  margin-bottom: 45px;
+}
+
+select.localNavi {
+  display: none;
+}
+
+div.localNavi {
+  position: relative;
+  float: left;
+  width: 75px;
+  height: 23px;
+  margin-right: 25px;
+}
+
+div.localNavi ul {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  margin-left: 0;
+  padding: 0.25em 0;
+  background: #f9f9f9;
+  display: none;
+}
+
+div.localNavi.yearly ul {
+  width: 695px;
+}
+
+div.localNavi.category ul {
+  min-width: 100px;
+}
+
+div.localNavi ul li {
+  float: left;
+  list-style-type: none;
+  padding-left: 14px;
+  line-height: 28px;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+div.localNavi ul li a {
+  color: #000;
+  text-decoration: none;
+}
+
+div.localNavi ul li a.active {
+  text-decoration: underline;
+}
+
+.works .gallery a,
+.works .gallery a.mlt3,
+.works .gallery a.mlt2 {
+  display: block;
+  float: left;
+  margin: 0 15px 15px 0;
+  border: 1px #ccc solid;
+}
+
+.works .gallery a:nth-of-type(5n) {
+  margin-right: 0;
+}
+
+.works .gallery a:hover {
+  border-color: #f763ac;
+}
+
+.works .gallery a img {
+  vertical-align: bottom;
+}
+
+
+@media screen and (max-width: 992px) {
+  .works .gallery a:nth-of-type(5n) {
+    margin-right: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .works select.localNavi {
+    display: block;
+    height: 2em;
+  }
+  .works div.localNavi {
+    display: none;
+  }
+}
+
+/* @end */
+
+
+/* @group biography
+---------------------------------------------------------------------------
+*/
+
+	.biography #localNavi {
+		display: block;
+    text-align: center;
+	}
+
+	.biography .section {
+		display: none;
+	}
+
+	.biography .section.profile {
+		display: block;
+	}
+
+@media screen and (max-width: 768px) {
+
+  .biography #localNavi {
+    display: none;
+    text-align: center;
+  }
+
+  .biography #localNavi a {
+    color: #f763ac !important;
+  }
+  
+  .biography .section {
+    display: block !important;
+  }
+
+  .biography dt {
+    clear: both;
+    font-size: 95%;
+    font-style: italic;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .biography dd {
+    padding-bottom: 1em;
+  }
+  
+}
+
+
+/* @group publication press
+---------------------------------------------------------------------------
+*/
+
+
+
+.publication-press .section .left {
+  width: 555px;
+}
+
+.publication-press .section .right p {
+  margin-bottom: 30px;
+}
+
+.publication-press .section .right a {
+  display: block;
+  width: 100px;
+  /* box-shadow */
+  box-shadow: #ccc 2px 4px 8px 2px;
+  -webkit-box-shadow: rgba(204, 204, 204, 0.65) 2px 4px 8px 2px;
+  -moz-box-shadow: rgba(204, 204, 204, 0.65) 2px 4px 8px 2px;
+}
+
+.publication-press .section .right a img {
+  vertical-align: bottom;
+}
+
+.publication-press dt {
+  clear: both;
+  padding-bottom: 20px;
+  font-size: 95%;
+  font-style: italic;
+  color: #333;
+}
+
+.publication-press dd {
+  padding-bottom: 1em;
+}
+
+.publication-press .item {
+  margin-bottom: 40px;
+}
+
+.publication-press div.year {
+  margin-bottom: 20px;
+  font-size: 95%;
+  font-style: italic;
+  color: #333333;
+}
+
+@media screen and (max-width: 768px) {
+  .publication-press .section .left {
+    width: 65%;
+  }
+  .publication-press .section .right {
+    width: 35%;
+  }
+  .publication-press .section .right > * {
+    float: right;
+  }
+  
+}
+
+/* @group impressum
+---------------------------------------------------------------------------
+*/
+
+.impressum .mail a {
+  color: #000;
+}
+
+
+/* @group [4] #footer内のレイアウト
+===========================================================================
+*/
+
+#footer {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+	padding: 60px 0 45px 0;
+  text-align: center;
+	box-sizing: border-box;
+}
+
+.home #footer {
+	width: 810px;
+}
+
+#footer .impressum a {
+  font-size: 85%;
+  color: #666;
+}
+
+#footer ul.footer__inner {
+	display: table;
+  margin: 0;
+	line-height: 22px;
+	font-size: 22px;
+}
+
+#footer .footer__inner li {
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 12px;
+}
+
+#footer .footer__inner li:first-child {
+	padding: 0;
+}
+
+#footer .footer__inner li:first-child .footer-contact {
+	display: block;
+	margin-top: -3px;
+}
+
+#footer .footer__inner li:first-child .footer-contact a {
+	color: #999;
+}
+
+@media screen and (max-width: 992px) {
+  #footer {
+    width: 100% !important;
+    padding: 60px 15px;
+    box-sizing: border-box;
+  }
+}
