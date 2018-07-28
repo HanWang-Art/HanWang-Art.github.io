@@ -1,0 +1,10 @@
+title,image_path,thumbnail_path,description
+david,data/works/2013/david.jpg,data/works/2013/david_thumbnail.jpg,"David, oil on canvas"
+egg,data/works/2013/egg.jpg,data/works/2013/egg_thumbnail.jpg,"Egg, oil on panel"
+untitled,data/works/2013/untitled.jpg,data/works/2013/untitled_thumbnail.jpg,"Untitled"
+self portrait,data/works/2013/self_portrait.jpg,data/works/2013/self_portrait_thumbnail.jpg,"Self portrait, oil on canvas"
+water color 1,data/works/2013/water_color_1.jpg,data/works/2013/water_color_1_thumbnail.jpg,"Water Color 1"
+water color 2,data/works/2013/water_color_2.jpg,data/works/2013/water_color_2_thumbnail.jpg,"Water Color 2"
+water color 3,data/works/2013/water_color_3.jpg,data/works/2013/water_color_3_thumbnail.jpg,"Water Color 3"
+water color 4,data/works/2013/water_color_4.jpg,data/works/2013/water_color_4_thumbnail.jpg,"Water Color 4"
+water color 5,data/works/2013/water_color_5.jpg,data/works/2013/water_color_5_thumbnail.jpg,"Water Color 5"
