@@ -1,0 +1,62 @@
+---
+layout: default
+---
+<div id="bodyer">
+<div id="inner">
+    <div class="story main_sub">
+	<div class="main">
+	    <div class="inner">
+		    <div id="localNavi" class="clearfix">
+			<div class="localNavi yearly">
+			    <div>
+				<img src="{{site.url}}/ui/year.png" alt="Year" title="" width="75" height="23" />
+			    </div>
+			    <ul class="clearfix">
+				{% assign works = site.data.works | sort %}
+				{% for works_at_year in works reversed %}
+				<li><a href="{{site.url}}/works/{{works_at_year[0]}}.html" {% if page.year == {{works_at_year[0]}} %} class="active" {% endif %}>{{works_at_year[0]}}</a></li>
+				{% endfor %}
+			    </ul>
+			</div>
+			<select class="localNavi">
+			    <option value="./" selected>Year</option>
+			    {% assign works = site.data.works | sort %}
+			    {% for works_at_year in works reversed %}
+			    <option value="/works/{{works_at_year[0]}}.html">{{works_at_year[0]}}</option>
+			    {% endfor %}
+			</select>
+			<div class="localNavi category">
+			    <div>
+				<img src="{{site.url}}/ui/category.png" alt="Category" title="" width="100" height="23"/>
+			    </div>
+			    <ul class="clearfix">
+				<li><a href="#">painting</a></li>
+				<li><a href="#">design</a></li>
+			    </ul>
+			</div>
+			<select class="localNavi">
+			    <option value="./" selected>Category</option>
+			    <option value="painting">painting</option>
+			    <option value="design">design</option>
+			</select>
+		    </div>
+			<div class="section">
+			<div class="subhead" id="{{page.year}}">{{page.year}}</div>
+			<div class="gallery clearfix">
+			   {% for works_at_year in site.data.works %}
+			   {% if works_at_year[0] == page.year %}
+				{% for work in works_at_year[1] %}
+			    <a data-fancybox-group="group" title="{{site.url}}/{{work.title}}" href="{{site.url}}/{{work.image_path}}" id="item001">
+				<img width="125" height="125" title="{{work.title}}" class="attachment-thumbnail" src="{{site.url}}/{{work.thumbnail_path}}" />
+				<div style="display: none;">{{work.description}}</div>
+			    </a>
+				{% endfor %}
+			  {% endif %}
+			   {% endfor %}
+			</div>
+		    </div>
+	    </div>
+	</div>
+    </div>
+</div>
+</div>
