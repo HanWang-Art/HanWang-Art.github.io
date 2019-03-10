@@ -13,6 +13,12 @@ def get_thumbnail_name(image_path):
 	dot_pos = image_path.rfind('.')
 	return image_path[:dot_pos] + "_thumbnail" + image_path[dot_pos:]
 
+def renamefile(image_path,new_size=(1024,1024)):
+	print("rename and resize file ", image_path)
+	im = Image.open(image_path)
+	print("output resize at ", image_path)
+	im.save(image_path)
+
 def make_thumbnail(image_path,thumb_size=(256,256)):
 	print("make thumbnail for ", image_path)
 	im = Image.open(image_path)
@@ -27,4 +33,7 @@ if __name__ == "__main__":
 	filelist = get_file_list(sys.argv[1])
 	filelist = filter_with_extend(filelist)
 	for f in filelist:
-		make_thumbnail(f)
+		if sys.argv[2] == "resize":
+			renamefile(f)
+		else:
+			make_thumbnail(f)
